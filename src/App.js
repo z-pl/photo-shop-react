@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import "./App.css"
 import {Routes, Route} from  "react-router-dom"
-
 import Photos from "./pages/Photos";
 import Cart from "./pages/Cart";
 function App() {
