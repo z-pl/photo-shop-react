@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
-import Image from "../components/Images";
+import Image from "../components/Image";
 import { Context } from '../Context';
-
+import shuffleArray from "../utils/shuffleArray";
 export default function Photos() {
   const {allPhotos} = useContext(Context);
-  console.log(allPhotos)
+
 
   const imageElements  = allPhotos.map((photo) => {
-    return <Image url={photo.url} />
+    return <Image id = {photo.id} key = {photo.id} url={photo.url} size={photo.size} isFav = {photo.isFavorite}/>
   })
+
+
 
   return (
 

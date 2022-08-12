@@ -1,5 +1,4 @@
 * {
-  color: black;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
@@ -28,6 +27,7 @@ a {
 
 .header--container svg {
   font-size: 25px;
+  color: black;
 }
 
 .image--canvas {
@@ -38,18 +38,50 @@ a {
   gap: 20px;
   margin: 20px;
 }
-
+.image--container {
+  position: relative;
+}
 
 .image--container img {
   object-fit: cover;
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  transform: scale(1);
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.42);
-  transition: all 0.2s;
+  transition:  transform 0.2s;
 }
 
-.image--container img:hover {
+.image--container.isFav-true img {
+  border: 2px solid rgba(255, 0, 0, 0.663);
+}
+
+.image--icons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 5px;
+  z-index: 10;
+  font-size: 22px;
+}
+
+.image--icons span:nth-child(1) {
+  color: red;
+  font-size: 1em;
+}
+.image--icons span:nth-child(2) {
+  color: green;
+  border: none;
+  font-size: 1em;
+
+}
+
+.image--icons span:hover {
+  cursor: pointer;
+}
+
+.image--container:hover img {
   transform: scale(1.05);
   cursor: pointer;
 }

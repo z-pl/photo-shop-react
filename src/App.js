@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <h1>yo</h1>
         <Routes>
           <Route exact path="/" element={<Photos />}/>
           <Route exact path="/cart" element={<Cart />}/>
