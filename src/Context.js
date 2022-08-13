@@ -5,6 +5,7 @@ const Context = React.createContext();
 
 function ContextProvider({children}) {
   const [allPhotos, setAllPhotos] = React.useState([]);
+  const [cartItems, setCartItems] = React.useState([]);
 
   React.useEffect(() => {
 
@@ -25,6 +26,21 @@ function ContextProvider({children}) {
     getPhotos();
   },[]);
 
+  const addToCart = (id) => {
+    setCartItems(prevCartItems => [...prevCartItems, id])
+  }
+
+  const removeFromCart = (id) => {
+    setCartItems(prevCartItems => {
+      return prevCartItems.filter(item => item !== id)
+    })
+  }
+
+  const isInCart = (id) => {
+    return cartItems.includes(id);
+  }
+
+
   const toggleFavorite = (id) => {
     setAllPhotos(prevPhotos => {
       return (
@@ -37,9 +53,8 @@ function ContextProvider({children}) {
       )
     })
   }
-
   return (
-    <Context.Provider value={{allPhotos, toggleFavorite}}>
+    <Context.Provider value={{allPhotos, toggleFavorite, addToCart, isInCart, removeFromCart}}>
       {children}
     </Context.Provider>
   )

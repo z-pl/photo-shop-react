@@ -56,6 +56,10 @@ a {
   border: 2px solid rgba(255, 0, 0, 0.663);
 }
 
+.image--container.cart-true img {
+  opacity: 60%;
+}
+
 .image--icons {
   display: flex;
   justify-content: space-between;
