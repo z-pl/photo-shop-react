@@ -48,6 +48,10 @@ function ContextProvider({children}) {
     )
   }
 
+  const emptyCart = () => {
+    setCartItems([]);
+  }
+
   const toggleFavorite = (id) => {
     setAllPhotos(prevPhotos => {
       return (
@@ -61,7 +65,7 @@ function ContextProvider({children}) {
     })
   }
   return (
-    <Context.Provider value={{allPhotos, toggleFavorite, addToCart, isInCart, removeFromCart, getCartImages}}>
+    <Context.Provider value={{allPhotos, toggleFavorite, addToCart, isInCart, removeFromCart, getCartImages, emptyCart}}>
       {children}
     </Context.Provider>
   )
